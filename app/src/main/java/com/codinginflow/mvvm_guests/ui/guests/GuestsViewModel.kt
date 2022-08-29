@@ -14,8 +14,6 @@ import javax.annotation.Resource
 class GuestViewModel @ViewModelInject constructor(private val guestDao: GuestDao) : ViewModel() {
     private val _guestList = MutableLiveData<com.codinginflow.mvvm_guests.ui.guests.Resource<List<GuestRecyclerViewItem>>>()
     val guestList: LiveData<com.codinginflow.mvvm_guests.ui.guests.Resource<List<GuestRecyclerViewItem>>>
-    /*private val _guestList = MutableLiveData<List<GuestRecyclerViewItem>>()
-        guestList: LiveData<List<GuestRecyclerViewItem>>*/
             get() = _guestList
 
     init {
@@ -29,16 +27,29 @@ class GuestViewModel @ViewModelInject constructor(private val guestDao: GuestDao
         //val guestList = guestDao.getGuests().asLiveData()
 
 
-        //val guests = ArrayList(guestDao.getGuests().toList())
+        //val guests =guestDao.getGuests().toCollection()
         val guests = guestDao.getGuests().first()
 
+
         //create recycler view
-        val guestItemList = arrayListOf<GuestRecyclerViewItem>()
+        val guestItemList = mutableListOf<GuestRecyclerViewItem>()
         guestItemList.add(GuestRecyclerViewItem.Title("These Guests Have a Reservation", 1))
-        guestItemList.addAll(guests)
+
+        for (GuestRecyclerViewItem in guests) {
+            if (GuestRecyclerViewItem.hasReservation) {
+                guestItemList.add(GuestRecyclerViewItem)
+            }
+        }
+
         guestItemList.add(GuestRecyclerViewItem.Title("These Guests Need a Reservation", 2))
 
-        _guestList.postValue(com.codinginflow.mvvm_guests.ui.guests.Resource.Success<List<GuestRecyclerViewItem>>(value = guestItemList))
+        for (GuestRecyclerViewItem in guests) {
+            if (!GuestRecyclerViewItem.hasReservation) {
+                guestItemList.add(GuestRecyclerViewItem)
+            }
+        }
+
+        _guestList.postValue(com.codinginflow.mvvm_guests.ui.guests.Resource.Success(guestItemList))
     }
 }
 sealed class Resource<out T> {
