@@ -1,4 +1,4 @@
-package com.codinginflow.mvvmtodo
+package com.codinginflow.mvvm_guests
 
 import org.junit.Test
 

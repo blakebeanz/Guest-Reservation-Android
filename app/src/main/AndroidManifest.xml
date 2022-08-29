@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codinginflow.mvvmtodo">
+    package="mvvm_guests">
 
     <application
+        android:name="com.codinginflow.mvvm_guests.GuestReservationApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MVVMTodo">
-        <activity android:name="com.codinginflow.mvvmtodo.MainActivity">
+        <activity android:name="com.codinginflow.mvvm_guests.ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
