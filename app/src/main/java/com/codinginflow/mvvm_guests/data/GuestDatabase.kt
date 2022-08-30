@@ -35,7 +35,6 @@ abstract class GuestDatabase : RoomDatabase() {
                 dao.insert(GuestRecyclerViewItem.Guest("Margaret Gibson", false))
             }
 
-
         }
     }
 }
