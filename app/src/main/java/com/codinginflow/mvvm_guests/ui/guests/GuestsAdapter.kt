@@ -9,6 +9,7 @@ import com.codinginflow.mvvm_guests.data.GuestRecyclerViewItem
 import mvvm_guests.R
 import mvvm_guests.databinding.ItemGuestBinding
 import mvvm_guests.databinding.ItemTitleBinding
+import mvvm_guests.databinding.MessageRuleBinding
 
 
 //class GuestsAdapter : ListAdapter<GuestRecyclerViewItem.Guest, GuestsAdapter.GuestRecyclerViewHolder.GuestViewHolder>(DiffCallback()) {
@@ -25,6 +26,7 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
         when (holder) {
             is GuestRecyclerViewHolder.GuestViewHolder -> holder.bind(items[position] as GuestRecyclerViewItem.Guest)
             is GuestRecyclerViewHolder.TitleViewHolder -> holder.bind(items[position] as GuestRecyclerViewItem.Title)
+            is GuestRecyclerViewHolder.InfoViewHolder -> holder.bind(items[position] as GuestRecyclerViewItem.Info)
         }
     }
 
@@ -37,6 +39,7 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
         return when (items[position]) {
             is GuestRecyclerViewItem.Guest -> R.layout.item_guest
             is GuestRecyclerViewItem.Title -> R.layout.item_title
+            is GuestRecyclerViewItem.Info -> R.layout.message_rule
         }
     }
 
@@ -54,6 +57,11 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
                 val binding =
                     ItemTitleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
                 return GuestRecyclerViewHolder.TitleViewHolder(binding)
+            }
+            R.layout.message_rule -> {
+                val binding =
+                    MessageRuleBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+                return GuestRecyclerViewHolder.InfoViewHolder(binding)
             }
             else -> throw IllegalArgumentException("Invalid View Type Provided")
         }
@@ -92,6 +100,12 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
             GuestRecyclerViewHolder(binding) {
             fun bind(title: GuestRecyclerViewItem.Title) {
                 binding.tvGuestReservationLabel.text = title.title
+            }
+        }
+
+        class InfoViewHolder(private val binding: MessageRuleBinding) : GuestRecyclerViewHolder(binding){
+            fun bind(info: GuestRecyclerViewItem.Info) {
+                binding.tvRule.text = info.message
             }
         }
     }

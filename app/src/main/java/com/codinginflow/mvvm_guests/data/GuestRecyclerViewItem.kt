@@ -21,4 +21,11 @@ sealed class GuestRecyclerViewItem {
     ) : GuestRecyclerViewItem(){
 
     }
+
+    data class Info(
+        val message: String,
+        val id: Int
+    ) : GuestRecyclerViewItem(){
+
+    }
 }

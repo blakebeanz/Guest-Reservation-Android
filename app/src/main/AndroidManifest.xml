@@ -17,6 +17,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="com.codinginflow.mvvm_guests.ui.next_screens.ConfirmationScreenActivity">
+        </activity>
+        <activity android:name="com.codinginflow.mvvm_guests.ui.next_screens.ConflictScreenActivity" />
     </application>
 
 </manifest>

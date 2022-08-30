@@ -9,5 +9,22 @@
         android:id="@+id/guestFragment"
         android:name="com.codinginflow.mvvm_guests.ui.guests.GuestFragment"
         android:label="fragment_guests"
-        tools:layout="@layout/fragment_guests" />
+        tools:layout="@layout/fragment_guests" >
+        <action
+            android:id="@+id/action_guestFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+        <action
+            android:id="@+id/action_guestFragment_to_conflictFragment"
+            app:destination="@id/conflictFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.codinginflow.mvvm_guests.ui.next_screens.ConfirmationFragment"
+        android:label="confirmation_fragment"
+        tools:layout="@layout/confirmation_fragment" />
+    <fragment
+        android:id="@+id/conflictFragment"
+        android:name="com.codinginflow.mvvm_guests.ui.next_screens.ConflictFragment"
+        android:label="conflict_fragment"
+        tools:layout="@layout/conflict_fragment" />
 </navigation>
