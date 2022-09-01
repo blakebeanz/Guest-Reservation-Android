@@ -32,8 +32,10 @@ class GuestViewModel @ViewModelInject constructor(private val guestDao: GuestDao
 
     private fun getGuestListItems() = viewModelScope.launch {
         _guestList.postValue(Resource.Loading)
-        val guests = guestDao.getGuests().first()
 
+
+        //comment this line out when testing
+        val guests = guestDao.getGuests().first()
 
         // create recycler view
         val guestItemList = mutableListOf<GuestRecyclerViewItem>()

@@ -17,8 +17,8 @@ MY BUILD:
 -MVVM Architecture
 -Multiiple View-Type Recycler View
 -Nav Graph with one main activity anf many fragments
--I've added 4 Guests (2 with reservations, 2 without) to the initial test case in Room, simple instrumentation tests can be created to further test
--the RoomDB capabilities
+-I've added 4 Guests (2 with reservations, 2 without) to the initial test case
+-the RoomDB capabilities are tested in the test folder
 
 Helpful Resources:
 -using Room DB/Dependency Injection/MVVM - Playlist - https://www.youtube.com/watch?v=Udk6iaR-RXA&list=PLrnPJCHvNZuCfAe7QK2BoMPkv2TGM_b0E

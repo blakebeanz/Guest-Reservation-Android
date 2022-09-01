@@ -11,8 +11,6 @@ import mvvm_guests.databinding.ItemGuestBinding
 import mvvm_guests.databinding.ItemTitleBinding
 import mvvm_guests.databinding.MessageRuleBinding
 
-
-//class GuestsAdapter : ListAdapter<GuestRecyclerViewItem.Guest, GuestsAdapter.GuestRecyclerViewHolder.GuestViewHolder>(DiffCallback()) {
 class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Guest, Boolean) -> Unit)? = null) :
     RecyclerView.Adapter<GuestsAdapter.GuestRecyclerViewHolder>() {
 
@@ -43,8 +41,6 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
         }
     }
 
-
-    //override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuestRecyclerViewHolder.GuestViewHolder {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GuestRecyclerViewHolder {
         return when (viewType) {
             R.layout.item_guest -> {
@@ -68,12 +64,6 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
 
     }
 
-    /*override fun onBindViewHolder(holder: GuestRecyclerViewHolder.GuestViewHolder, position: Int) {
-        val item = getItem(position)
-        holder.bind(item)
-    }*/
-
-
     sealed class GuestRecyclerViewHolder(binding: ViewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         class GuestViewHolder(
@@ -90,8 +80,6 @@ class GuestsAdapter constructor(val itemCbCallback: ((GuestRecyclerViewItem.Gues
                         itemCbCallback?.invoke(guest, isChecked)
                     }
                 }
-
-
             }
         }
 
